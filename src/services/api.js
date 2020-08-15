@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com/',
+  baseURL: process.env.REACT_APP_API,
+  //baseURL: 'https://jsonplaceholder.typicode.com/',
   //baseURL: 'http://localcost:3000/',
 });
 

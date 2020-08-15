@@ -8,8 +8,10 @@ function App() {
   const [infos, setInfos] = useState([]);
   useEffect(() =>{
     async function loadInfos(){
-      const response = await api.get('users');
+      const response = await api.get('');
+      console.log(response)
       setInfos(response.data);
+
     }
     loadInfos();
   }, []);
@@ -23,13 +25,13 @@ function App() {
           <h1>Chocolates</h1>
           <ChocolateList>
             {infos.map((info) =>(
-              <li key={info.id}>
+              <li key={info._id}>
                 <div>
-                  <img src={chocolateImg} alt='Imagem do chocolate'/>
+                  <img src={info.imagem} alt='Imagem do chocolate'/>
                   <div>
-                    <h2>{info.name}</h2>
-                    <p>{info.email}</p>
-                    <p>{info.username}</p>
+                    <h2>{info.nome}</h2>
+                    <p>{info.marca}</p>
+                    <p>{info.valor}</p>
                   </div>
                 </div>
               </li>
